@@ -12,12 +12,6 @@ then
 	startx; exit
 fi
 
-# Neofetch on launch
-if [ $USER = mhmorris ]
-then
-	neofetch
-fi
-
 # Git Syncing with https://git/MorrisLAN/maxs-dotfiles
 alias 'maxs-dotfiles'='/usr/bin/git --git-dir=$HOME/.config/maxs-dotfiles/ --work-tree=$HOME'
 alias 'pull.files'='maxs-dotfiles pull origin master && i3 restart'
