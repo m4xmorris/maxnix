@@ -1,1 +1,1 @@
-![fastfetch](maxs-pc/fastfetch.png)
+![fastfetch](fastfetch.png)
