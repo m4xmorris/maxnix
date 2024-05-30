@@ -2,7 +2,7 @@
 {
   imports =
     [
-      ../maxs-pc/hardware.nix
+      ./hardware.nix
       ../modules/home.nix
       ../modules/i3.nix
     ];
