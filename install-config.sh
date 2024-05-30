@@ -7,9 +7,9 @@ if [ -f ${CONFIG_PATH} ]; then
   ln -s ${CONFIG_PATH} /etc/nixos/configuration.nix
   echo "OK - Symlinked configuration.nix for $(cat /etc/hostname)"
   read -p "Rebuild now (N/switch/boot)?" REBUILD
-  if [ ${REBUILD} == "switch" ];then
+  if [ "${REBUILD}" == "switch" ];then
     nixos-rebuild switch
-  elif [ ${REBUILD} == "boot" ]; then
+  elif [ "${REBUILD}" == "boot" ]; then
     nixos-rebuild boot
   fi
 else
