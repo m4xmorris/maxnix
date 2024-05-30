@@ -111,7 +111,6 @@ in
 				{ block = "disk_space"; }
 				{ block = "music"; }
 				{ block = "net"; }
-				{ block = "nvidia_gpu"; }
 				{ block = "sound"; }
 				{ block = "temperature"; }
 				{ block = "uptime"; }
