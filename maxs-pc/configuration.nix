@@ -2,9 +2,9 @@
 {
   imports =
     [
-      ./maxs-pc/hardware.nix
-      ./modules/home.nix
-      ./modules/i3.nix
+      ../maxs-pc/hardware.nix
+      ../modules/home.nix
+      ../modules/i3.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
