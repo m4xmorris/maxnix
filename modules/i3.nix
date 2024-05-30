@@ -108,6 +108,7 @@ in
 				{ block = "focused_window"; }
 				{ block = "cpu"; }
 				{ block = "memory"; }
+				{ block = "battery"; }
 				{ block = "disk_space"; }
 				{ block = "music"; }
 				{ block = "net"; }
