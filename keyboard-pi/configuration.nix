@@ -12,7 +12,7 @@
 
   users.users.max.extraGroups = [ "wheel" ];
 
-  networking.hostName = "maxs-laptop";
+  networking.hostName = "keyboard-pi";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/London";
