@@ -5,6 +5,7 @@
       ./hardware.nix
       ../modules/home.nix
       ../modules/i3.nix
+      ../modules/update-config.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
