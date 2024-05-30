@@ -2,6 +2,7 @@
 {
   imports =
     [
+      ../modules/update-config.nix
       ./hardware.nix
       ../modules/home.nix
       ../modules/i3.nix
