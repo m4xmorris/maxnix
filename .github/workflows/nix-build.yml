@@ -26,7 +26,7 @@ jobs:
       run: |
         nix-build '<nixpkgs/nixos>'  \
           -A config.system.build.sdImage \
-          -I nixos-config=./${{ github.job }}/hardware.nix \
+          -I nixos-config=./${{ github.job }}/configuration.nix \
           --argstr system aarch64-linux \
           --option sandbox false
     - name: Prepare image
