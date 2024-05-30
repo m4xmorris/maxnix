@@ -1,3 +1,3 @@
-# Max's Dotfiles
+# maxnix
 
-My personal config files for i3-gaps, compton, zsh, neofetch, etc.
+My personal NixOS environments/builds.
