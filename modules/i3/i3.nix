@@ -27,7 +27,7 @@ in
           pkgs.i3status-rust
           pkgs.rofi
           pkgs.rofi-screenshot
-          pkgs.i3lock
+          pkgs.betterlockscreen
           pkgs.picom
           pkgs.dunst
           pkgs.numlockx
@@ -116,7 +116,7 @@ in
                 { block = "uptime"; }
                 { block = "time"; }
               ];
-              icons = "awesome5";
+              icons = "awesome6";
               theme = "dracula";
             };
           };
@@ -136,7 +136,7 @@ in
               workspaceAutoBackAndForth = true;
                 bars = [
                   {
-                    fonts = { names = [ "Ubuntu Monospace" ]; size = 9.0; };
+                    fonts = { names = [ "Ubuntu" ]; size = 9.0; };
                     position = "top";
                     trayOutput = "primary";
                     statusCommand = "i3status-rs /home/max/.config/i3status-rust/config-top.toml";
@@ -165,8 +165,7 @@ in
                 keybindings = let modifier = config.home-manager.users.max.xsession.windowManager.i3.config.modifier;
                 in lib.mkForce {
                   # Restart i3
-                  "${modifier}+Shift+r" = "restart"; # Reload i3 config
-                  "${modifier}+Shift+c" = "reload";
+                  "${modifier}+Shift+r" = "restart"; # Restart i3
 
                   # Quit i3
                   "${modifier}+Shift+e" = "exec i3-nagbar -t warning -m 'Exit i3?' -b 'yes' 'i3-msg exit'";
@@ -197,6 +196,18 @@ in
                   "${modifier}+Right" = "focus right";
                   "${modifier}+Up" = "focus up";
 
+                  # Move focused window to a workspace
+                  "#{modifier}+Shift+1" = "move container to workspace number 1";
+                  "#{modifier}+Shift+2" = "move container to workspace number 2";
+                  "#{modifier}+Shift+3" = "move container to workspace number 3";
+                  "#{modifier}+Shift+4" = "move container to workspace number 4";
+                  "#{modifier}+Shift+5" = "move container to workspace number 5";
+                  "#{modifier}+Shift+6" = "move container to workspace number 6";
+                  "#{modifier}+Shift+7" = "move container to workspace number 7";
+                  "#{modifier}+Shift+8" = "move container to workspace number 8";
+                  "#{modifier}+Shift+9" = "move container to workspace number 9";
+                  "#{modifier}+Shift+0" = "move container to workspace number 10";
+
                   # Move focused window
                   "${modifier}+Shift+Down" = "move down";
                   "${modifier}+Shift+Left" = "move left";
@@ -216,6 +227,9 @@ in
                   # Tile in horizontal orientation
                   "${modifier}+h" = "split h";
 
+                  # Tile in vertical orientation
+                  "${modifier}+v" = "split v";
+
                   # Launch Firefox & switch to its workspace
                   "${modifier}+i" = "exec --no-startup-id firefox & i3 workspace 2";
 
@@ -227,9 +241,6 @@ in
 
                   # Launch Terminator
                   "${modifier}+t" = "exec --no-startup-id terminator & i3 workspace 1";
-
-                  # Tile in vertical orientation
-                  "${modifier}+v" = "split v";
 
                   # Screenshot to clipboard
                   "${modifier}+Shift+s" = "exec --no-startup-id rofi-screenshot";
