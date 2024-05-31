@@ -245,7 +245,7 @@ in
                   "${modifier}+v" = "split v";
 
                   # Launch Firefox & switch to its workspace
-                  "${modifier}+i" = "exec --no-startup-id firefox & i3 workspace 2";
+                  "${modifier}+i" = "exec --no-startup-id firefox";
 
                   # Lock Screen
                   "${modifier}+l" = "exec \"betterlockscreen -l\"";
@@ -254,9 +254,9 @@ in
                   "${modifier}+q" = "kill";
 
                   # Launch Terminator
-                  "${modifier}+t" = "exec --no-startup-id terminator & i3 workspace 1";
+                  "${modifier}+t" = "exec --no-startup-id terminator";
 
-                  # Screenshot to clipboard
+                  # Screenshot
                   "${modifier}+Shift+s" = "exec --no-startup-id rofi-screenshot";
 
                   # Resize the focused window
