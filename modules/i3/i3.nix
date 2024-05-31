@@ -129,7 +129,7 @@ in
         services.screen-locker = {
           enable = true;
           inactiveInterval = 10;
-          lockCmd = "${pkgs.betterlockscreen}/bin/betterlockscreen --lock";
+          lockCmd = "${pkgs.betterlockscreen}/bin/betterlockscreen --lock & systemctl suspend";
           xautolock = {
             enable = true;
             detectSleep = true;
@@ -253,7 +253,7 @@ in
                   "${modifier}+i" = "exec --no-startup-id firefox";
 
                   # Lock Screen
-                  "${modifier}+l" = "exec \"betterlockscreen -l\"";
+                  "${modifier}+l" = "exec ${pkgs.betterlockscreen}/bin/betterlockscreen --lock & systemctl suspend";
 
                   # Kill the focused window
                   "${modifier}+q" = "kill";
