@@ -35,7 +35,6 @@ in
 		  pkgs.cinnamon.nemo
 		  pkgs.playerctl
 		  pkgs.firefox
-		  pkgs.flatpak
 		  pkgs.terminator
 		  pkgs._1password-gui
 		  pkgs.pavucontrol
