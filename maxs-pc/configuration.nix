@@ -26,7 +26,7 @@
 
   home-manager.users.max.xsession.windowManager.i3.config.bars = [
     {
-      trayOutput = "DP2"; 
+      trayOutput = "DP-2"; 
     }
   ];
 
