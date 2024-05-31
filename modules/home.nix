@@ -40,6 +40,7 @@ in
         enable = true;
         syntaxHighlighting.enable = true;
         enableAutosuggestions = true;
+	shellAliases = { update-config = "sudo rm -r /etc/nixos && sudo git clone https://github.com/m4xmorris/maxnix /etc/nixos && sudo bash /etc/nixos/install-config.sh"; };
         initExtra = "touch .zshrc 2> /dev/null ; if [ $TTY = \"/dev/tty1\" ] && [[ $HOST = maxs-pc || $HOST = maxs-laptop ]] ; then ; startx; exit ;fi";
       };
       zsh.oh-my-zsh = {
