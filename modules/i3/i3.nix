@@ -127,117 +127,117 @@ in
           scriptPath = ".xinitrc";
           windowManager.i3 = {
             enable = true;
-              config = {
-                modifier = "Mod4";
-                window.titlebar = false;
-                gaps.smartGaps = true;
-                gaps.inner = 5;
-                gaps.outer = 5;
-                workspaceAutoBackAndForth = true;
-                  bars = [
-                    {
-                      fonts = { names = [ "Ubuntu Monospace" ]; size = 9.0; };
-                      position = "top";
-                      trayOutput = "primary";
-                      statusCommand = "i3status-rs /home/max/.config/i3status-rust/config-top.toml";
-                      colors = {
-                        background = "#282A36";
-                        statusline = "#F8F8F2";
-                        separator = "#44475A";
-                        focusedWorkspace = { border = "#44475A"; background = "#44475A"; text = "#F8F8F2"; };
-                        activeWorkspace = { border = "#282A36"; background = "#44475A"; text = "#F8F8F2"; };
-                        inactiveWorkspace = { border = "#282A36"; background = "#282A36"; text = "#BFBFBF"; };
-                        urgentWorkspace = { border = "#FF5555"; background = "#FF5555"; text = "#F8F8F2"; };
-                        bindingMode = { border = "#FF5555"; background = "#FF5555"; text = "#F8F8F2"; };
-                      };
-                    }
-                  ];
-                  startup = [
-                    { command = "numlockx on"; always = true; }
-                    { command = "feh --bg-fill /etc/nixos/modules/i3/wallpaper.jpg"; always = true; }
-                    { command = "solaar -w hide"; }
-                    { command = "nextcloud"; }
-                    { command = "dunst"; }
-                    { command = "picom" ; }
-                    { command = "1password --silent"; }
-                  ];
+            config = {
+              modifier = "Mod4";
+              window.titlebar = false;
+              gaps.smartGaps = true;
+              gaps.inner = 5;
+              gaps.outer = 5;
+              workspaceAutoBackAndForth = true;
+                bars = [
+                  {
+                    fonts = { names = [ "Ubuntu Monospace" ]; size = 9.0; };
+                    position = "top";
+                    trayOutput = "primary";
+                    statusCommand = "i3status-rs /home/max/.config/i3status-rust/config-top.toml";
+                    colors = {
+                      background = "#282A36";
+                      statusline = "#F8F8F2";
+                      separator = "#44475A";
+                      focusedWorkspace = { border = "#44475A"; background = "#44475A"; text = "#F8F8F2"; };
+                      activeWorkspace = { border = "#282A36"; background = "#44475A"; text = "#F8F8F2"; };
+                      inactiveWorkspace = { border = "#282A36"; background = "#282A36"; text = "#BFBFBF"; };
+                      urgentWorkspace = { border = "#FF5555"; background = "#FF5555"; text = "#F8F8F2"; };
+                      bindingMode = { border = "#FF5555"; background = "#FF5555"; text = "#F8F8F2"; };
+                    };
+                  }
+                ];
+                startup = [
+                  { command = "numlockx on"; always = true; }
+                  { command = "feh --bg-fill /etc/nixos/modules/i3/wallpaper.jpg"; always = true; }
+                  { command = "solaar -w hide"; }
+                  { command = "nextcloud"; }
+                  { command = "dunst"; }
+                  { command = "picom" ; }
+                  { command = "1password --silent"; }
+                ];
 
-                  keybindings = let modifier = config.home-manager.users.max.xsession.windowManager.i3.config.modifier;
-                  in lib.mkForce {
-                    # Restart i3
-                    "${modifier}+Shift+r" = "restart"; # Reload i3 config
-                    "${modifier}+Shift+c" = "reload";
+                keybindings = let modifier = config.home-manager.users.max.xsession.windowManager.i3.config.modifier;
+                in lib.mkForce {
+                  # Restart i3
+                  "${modifier}+Shift+r" = "restart"; # Reload i3 config
+                  "${modifier}+Shift+c" = "reload";
 
-                    # Quit i3
-                    "${modifier}+Shift+e" = "exec i3-nagbar -t warning -m 'Exit i3?' -b 'yes' 'i3-msg exit'";
+                  # Quit i3
+                  "${modifier}+Shift+e" = "exec i3-nagbar -t warning -m 'Exit i3?' -b 'yes' 'i3-msg exit'";
 
-                    # Media Keys
-                    "XF86AudioPlay" = "exec playerctl play-pause";
-                    "XF86AudioNext" = "exec playerctl next";
-                    "XF86AudioPrev" = "exec playerctl previous";
-                    "XF86AudioRaiseVolume" = "exec amixer sset 'Master' 5%+";
-                    "XF86AudioLowerVolume" = "exec amixer sset 'Master' 5%-";
-                    "XF86AudioMute" = "exec amixer sset 'Master' toggle";
+                  # Media Keys
+                  "XF86AudioPlay" = "exec playerctl play-pause";
+                  "XF86AudioNext" = "exec playerctl next";
+                  "XF86AudioPrev" = "exec playerctl previous";
+                  "XF86AudioRaiseVolume" = "exec amixer sset 'Master' 5%+";
+                  "XF86AudioLowerVolume" = "exec amixer sset 'Master' 5%-";
+                  "XF86AudioMute" = "exec amixer sset 'Master' toggle";
 
-                    # Switch Workspaces
-                    "${modifier}+0" = "workspace number 10";
-                    "${modifier}+1" = "workspace number 1";
-                    "${modifier}+2" = "workspace number 2";
-                    "${modifier}+3" = "workspace number 3";
-                    "${modifier}+4" = "workspace number 4";
-                    "${modifier}+5" = "workspace number 5";
-                    "${modifier}+6" = "workspace number 6";
-                    "${modifier}+7" = "workspace number 7";
-                    "${modifier}+8" = "workspace number 8";
-                    "${modifier}+9" = "workspace number 9";
+                  # Switch Workspaces
+                  "${modifier}+0" = "workspace number 10";
+                  "${modifier}+1" = "workspace number 1";
+                  "${modifier}+2" = "workspace number 2";
+                  "${modifier}+3" = "workspace number 3";
+                  "${modifier}+4" = "workspace number 4";
+                  "${modifier}+5" = "workspace number 5";
+                  "${modifier}+6" = "workspace number 6";
+                  "${modifier}+7" = "workspace number 7";
+                  "${modifier}+8" = "workspace number 8";
+                  "${modifier}+9" = "workspace number 9";
 
-                    # Change focused window
-                    "${modifier}+Down" = "focus down";
-                    "${modifier}+Left" = "focus left";
-                    "${modifier}+Right" = "focus right";
-                    "${modifier}+Up" = "focus up";
+                  # Change focused window
+                  "${modifier}+Down" = "focus down";
+                  "${modifier}+Left" = "focus left";
+                  "${modifier}+Right" = "focus right";
+                  "${modifier}+Up" = "focus up";
 
-                    # Move focused window
-                    "${modifier}+Shift+Down" = "move down";
-                    "${modifier}+Shift+Left" = "move left";
-                    "${modifier}+Shift+Right" = "move right";
-                    "${modifier}+Shift+Up" = "move up";
+                  # Move focused window
+                  "${modifier}+Shift+Down" = "move down";
+                  "${modifier}+Shift+Left" = "move left";
+                  "${modifier}+Shift+Right" = "move right";
+                  "${modifier}+Shift+Up" = "move up";
 
-                    # Fullscreen the focused window
-                    "${modifier}+Return" = "fullscreen toggle";
+                  # Fullscreen the focused window
+                  "${modifier}+Return" = "fullscreen toggle";
 		
-                    # Rofi
-                    "${modifier}+space" = "exec --no-startup-id rofi -show drun -show-icons";
-                    "${modifier}+s" = "exec --no-startup-id 'rofi -show ssh -terminal \"terminator\"  -ssh-command \"{terminal} -e \\\"{ssh-client} {host} [-p {port}] ; read\\\"\"'";
+                  # Rofi
+                  "${modifier}+space" = "exec --no-startup-id rofi -show drun -show-icons";
+                  "${modifier}+s" = "exec --no-startup-id 'rofi -show ssh -terminal \"terminator\"  -ssh-command \"{terminal} -e \\\"{ssh-client} {host} [-p {port}] ; read\\\"\"'";
 
-                    # Make the focused window float
-                    "${modifier}+Shift+f" = "floating toggle";
+                  # Make the focused window float
+                  "${modifier}+Shift+f" = "floating toggle";
 
-                    # Tile in horizontal orientation
-                    "${modifier}+h" = "split h";
+                  # Tile in horizontal orientation
+                  "${modifier}+h" = "split h";
 
-                    # Launch Firefox & switch to its workspace
-                    "${modifier}+i" = "exec --no-startup-id firefox & i3 workspace 2";
+                  # Launch Firefox & switch to its workspace
+                  "${modifier}+i" = "exec --no-startup-id firefox & i3 workspace 2";
 
-                    # Lock Screen
-                    "${modifier}+l" = "exec \"betterlockscreen -l\"";
+                  # Lock Screen
+                  "${modifier}+l" = "exec \"betterlockscreen -l\"";
 
-                    # Kill the focused window
-                    "${modifier}+q" = "kill";
+                  # Kill the focused window
+                  "${modifier}+q" = "kill";
 
-                    # Launch Terminator
-                    "${modifier}+t" = "exec --no-startup-id terminator & i3 workspace 1";
+                  # Launch Terminator
+                  "${modifier}+t" = "exec --no-startup-id terminator & i3 workspace 1";
 
-                    # Tile in vertical orientation
-                    "${modifier}+v" = "split v";
+                  # Tile in vertical orientation
+                  "${modifier}+v" = "split v";
 
-                    # Screenshot to clipboard
-                    "${modifier}+Shift+s" = "exec --no-startup-id rofi-screenshot";
+                  # Screenshot to clipboard
+                  "${modifier}+Shift+s" = "exec --no-startup-id rofi-screenshot";
 
-                    # Resize the focused window
-                    "${modifier}+r" = "mode \"resize\"";
-                  };
-	      };
+                  # Resize the focused window
+                  "${modifier}+r" = "mode \"resize\"";
+                };
+	            };
             };
           };
         };
