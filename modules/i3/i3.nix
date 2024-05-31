@@ -16,7 +16,6 @@ in
       enable = true;
     };
   };
-
   
   home-manager = {
     useGlobalPkgs = true;
@@ -119,6 +118,16 @@ in
               icons = "awesome6";
               theme = "dracula";
             };
+          };
+        };
+
+        services.screen-locker = {
+          enable = true;
+          inactiveInterval = 10;
+          lockCmd = "${pkgs.betterlockscreen}/bin/betterlockscreen --lock";
+          xautolock = {
+            enable = true;
+            detectSleep = true;
           };
         };
 

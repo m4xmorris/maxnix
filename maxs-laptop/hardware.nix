@@ -15,6 +15,7 @@
   services.blueman.enable = true;
 
   boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelParams = [ "button.lid_init_state=open" ];
   boot.extraModulePackages = [ ];
 
   sound.enable = true;
