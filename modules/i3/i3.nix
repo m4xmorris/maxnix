@@ -130,9 +130,9 @@ in
             config = {
               modifier = "Mod4";
               window.titlebar = false;
-              gaps.smartGaps = true;
-              gaps.inner = 5;
-              gaps.outer = 5;
+              gaps.smartGaps = false;
+              gaps.inner = 3;
+              gaps.outer = 2;
               workspaceAutoBackAndForth = true;
                 bars = [
                   {
@@ -197,16 +197,21 @@ in
                   "${modifier}+Up" = "focus up";
 
                   # Move focused window to a workspace
-                  "#{modifier}+Shift+1" = "move container to workspace number 1";
-                  "#{modifier}+Shift+2" = "move container to workspace number 2";
-                  "#{modifier}+Shift+3" = "move container to workspace number 3";
-                  "#{modifier}+Shift+4" = "move container to workspace number 4";
-                  "#{modifier}+Shift+5" = "move container to workspace number 5";
-                  "#{modifier}+Shift+6" = "move container to workspace number 6";
-                  "#{modifier}+Shift+7" = "move container to workspace number 7";
-                  "#{modifier}+Shift+8" = "move container to workspace number 8";
-                  "#{modifier}+Shift+9" = "move container to workspace number 9";
-                  "#{modifier}+Shift+0" = "move container to workspace number 10";
+                  "${modifier}+Shift+1" = "move container to workspace number 1 ; workspace number 1";
+                  "${modifier}+Shift+2" = "move container to workspace number 2 ; workspace number 2";
+                  "${modifier}+Shift+3" = "move container to workspace number 3 ; workspace number 3";
+                  "${modifier}+Shift+4" = "move container to workspace number 4 ; workspace number 4";
+                  "${modifier}+Shift+5" = "move container to workspace number 5 ; workspace number 5";
+                  "${modifier}+Shift+6" = "move container to workspace number 6 ; workspace number 6";
+                  "${modifier}+Shift+7" = "move container to workspace number 7 ; workspace number 7";
+                  "${modifier}+Shift+8" = "move container to workspace number 8 ; workspace number 8";
+                  "${modifier}+Shift+9" = "move container to workspace number 9 ; workspace number 9";
+                  "${modifier}+Shift+0" = "move container to workspace number 10 ; workspace number 10";
+                  
+                  # Move workspaces between monitors
+                  "${modifier}+Ctrl+Left" = "move workspace to output left";
+                  "${modifier}+Ctrl+Right" = "move workspace to output right";
+
 
                   # Move focused window
                   "${modifier}+Shift+Down" = "move down";
