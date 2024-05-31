@@ -29,6 +29,7 @@
     btop
     killall
     moonlight-qt
+    spotify
   ];
 
   system.stateVersion = "23.11";
