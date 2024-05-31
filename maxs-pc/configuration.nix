@@ -24,7 +24,7 @@
     useXkbConfig = true;
   };
 
-  home-manager.users.max.xsession.windowManager.i3.bars = [
+  home-manager.users.max.xsession.windowManager.i3.config.bars = [
     {
       tray_output = "DP2"; 
     }
