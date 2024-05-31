@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }: {
   imports = [
-    "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/raspberry-pi/4
+    "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/raspberry-pi/4"
     <nixpkgs/nixos/modules/installer/sd-card/sd-image.nix>
   ];
   boot = {
