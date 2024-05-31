@@ -24,12 +24,6 @@
     useXkbConfig = true;
   };
 
-  home-manager.users.max.xsession.windowManager.i3.config.bars = [
-    {
-      trayOutput = "DP-2"; 
-    }
-  ];
-
   environment.systemPackages = with pkgs; [
     wget
     btop
