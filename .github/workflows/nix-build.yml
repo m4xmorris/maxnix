@@ -1,3 +1,4 @@
+name: "nix-build.yml"
 on:
   workflow_dispatch:
       
