@@ -15,11 +15,12 @@
   services.blueman.enable = true;
 
   boot.kernelModules = [ "kvm-intel" ];
-  boot.kernelParams = [ "button.lid_init_state=open" ];
   boot.extraModulePackages = [ ];
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+
+  services.logind.powerKey = "suspend";
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/04a5bafa-77e5-492a-8479-40f3850e627b";
