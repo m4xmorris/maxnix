@@ -161,6 +161,7 @@ in
 				{ command = "nextcloud"; }
 				{ command = "dunst"; }
 				{ command = "picom" ; }
+				{ command = "1password --silent"; }
 				];
 
 				keybindings = let modifier = config.home-manager.users.max.xsession.windowManager.i3.config.modifier;
