@@ -1,5 +1,6 @@
 { config, pkgs, lib, ... }: {
   imports = [
+    <nixos-hardware/raspberry-pi/4>
     <nixpkgs/nixos/modules/installer/sd-card/sd-image.nix>
   ];
   boot = {
