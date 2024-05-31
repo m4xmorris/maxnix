@@ -11,6 +11,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build image
+      env:
+        NIX_PATH: "nixpkgs=channel:nixos-23.11"
       run: |
         nix-build '<nixpkgs/nixos>'  \
           -A config.system.build.sdImage \
