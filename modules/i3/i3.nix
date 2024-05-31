@@ -111,7 +111,7 @@ in
                 { block = "music"; }
                 { block = "net"; }
                 { block = "sound"; }
-                { block = "temperature"; }
+                { block = "temperature"; format = " $icon $max C "; }
                 { block = "uptime"; }
                 { block = "time"; }
               ];
@@ -148,6 +148,7 @@ in
               gaps.inner = 3;
               gaps.outer = 2;
               workspaceAutoBackAndForth = true;
+              defaultWorkspace = "workspace number 1";
                 bars = [
                   {
                     fonts = { names = [ "Ubuntu" ]; size = 9.0; };
