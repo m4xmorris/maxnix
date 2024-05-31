@@ -8,8 +8,10 @@ if [ -f ${CONFIG_PATH} ]; then
   echo -e "\nOK - Symlinked configuration.nix for $(cat /etc/hostname)"
   read -p "Rebuild now (N/s/b)?" REBUILD
   if [ "${REBUILD}" == "s" ];then
+    echo
     nixos-rebuild switch
   elif [ "${REBUILD}" == "b" ]; then
+    echo
     nixos-rebuild boot
   fi
 else
