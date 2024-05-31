@@ -25,6 +25,10 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  services.xserver.xrandrHeads = [
+    { output = "DP-2"; primary = true; }
+  ];
+
   services.xserver.videoDrivers = ["nvidia"];
   services.xserver.exportConfiguration = true;
   services.xserver.screenSection = ''
