@@ -5,7 +5,7 @@
       ../modules/update-maxnix/update-maxnix.nix
       ./hardware.nix
       ../modules/home.nix
-      ../modules/i3.nix
+      ../modules/i3/i3.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
