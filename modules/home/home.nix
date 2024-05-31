@@ -40,7 +40,7 @@ in
         enable = true;
         syntaxHighlighting.enable = true;
         enableAutosuggestions = true;
-        initExtra = "touch .zshrc 2> /dev/null ; if [ $TTY = \"/dev/tty1\" ] && [[ $HOST = maxs-pc || $HOST = maxs-laptop ]] ; then ; startx; exit ;fi";
+        initExtra = lib.mkDefault "touch .zshrc 2> /dev/null";
       };
       zsh.oh-my-zsh = {
         enable = true;

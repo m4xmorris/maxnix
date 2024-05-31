@@ -121,6 +121,11 @@ in
           };
         };
 
+        programs.zsh = {
+          initExtra = "if [ $TTY = \"/dev/tty1\" ] && [[ $HOST = maxs-pc || $HOST = maxs-laptop ]] ; then ; startx; exit ;fi; touch .zshrc 2> /dev/null";
+          shellAliases = { update-lockscreen = "betterlockscreen -u /etc/nixos/modules/i3/wallpaper.jpg --blur 0.4"; };
+        };
+
         services.screen-locker = {
           enable = true;
           inactiveInterval = 10;
