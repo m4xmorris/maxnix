@@ -2,8 +2,8 @@
 {
   imports =
     [
+      ../hardware/rpi4.nix
       ../modules/update-maxnix/update-maxnix.nix
-      ./hardware.nix
       ../modules/home/home.nix
       ../modules/i3/i3.nix
     ];
@@ -12,7 +12,7 @@
 
   users.users.max.extraGroups = [ "wheel" ];
 
-  networking.hostName = "maxs-laptop";
+  networking.hostName = "keyboard-pi";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/London";
@@ -29,7 +29,6 @@
     btop
     killall
     moonlight-qt
-    spotify
   ];
 
   system.stateVersion = "23.11";

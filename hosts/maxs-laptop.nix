@@ -2,8 +2,8 @@
 {
   imports =
     [
+      ../hardware/acer/aspire-a515.nix
       ../modules/update-maxnix/update-maxnix.nix
-      ./hardware.nix
       ../modules/home/home.nix
       ../modules/i3/i3.nix
     ];
@@ -12,7 +12,7 @@
 
   users.users.max.extraGroups = [ "wheel" ];
 
-  networking.hostName = "keyboard-pi";
+  networking.hostName = "maxs-laptop";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/London";
@@ -29,6 +29,7 @@
     btop
     killall
     moonlight-qt
+    spotify
   ];
 
   system.stateVersion = "23.11";

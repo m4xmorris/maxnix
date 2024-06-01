@@ -1,8 +1,21 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }: 
+{
+
   imports = [
     "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/raspberry-pi/4"
     <nixpkgs/nixos/modules/installer/sd-card/sd-image.nix>
   ];
+
+  nixpkgs = {
+    localSystem.system = "aarch64-linux";
+    overlays = [
+      (final: super: {
+        makeModulesClosure = x:
+          super.makeModulesClosure (x // { allowMissing = true; });
+      })
+    ];
+  };
+
   boot = {
     kernelPackages = pkgs.linuxPackages_rpi4;
     consoleLogLevel = lib.mkDefault 7;
@@ -23,15 +36,6 @@
 
   hardware.raspberry-pi."4".fkms-3d.enable = true;
 
-  nixpkgs = {
-    localSystem.system = "aarch64-linux";
-    overlays = [
-      (final: super: {
-        makeModulesClosure = x:
-          super.makeModulesClosure (x // { allowMissing = true; });
-      })
-    ];
-  };
   sdImage = {
     compressImage = true;
     populateFirmwareCommands = let
@@ -42,27 +46,16 @@
         kernel=u-boot-rpi4.bin
         enable_gic=1
         armstub=armstub8-gic.bin
-        # Otherwise the resolution will be weird in most cases, compared to
-        # what the pi3 firmware does by default.
         disable_overscan=1
         [all]
-        # Boot in 64-bit mode.
         arm_64bit=1
-        # U-Boot needs this to work, regardless of whether UART is actually used or not.
-        # Look in arch/arm/mach-bcm283x/Kconfig in the U-Boot tree to see if this is still
-        # a requirement in the future.
         enable_uart=1
-        # Prevent the firmware from smashing the framebuffer setup done by the mainline kernel
-        # when attempting to show low-voltage or overtemperature warnings.
         avoid_warnings=1
       '';
     in ''
       (cd ${pkgs.raspberrypifw}/share/raspberrypi/boot && cp bootcode.bin fixup*.dat start*.elf $NIX_BUILD_TOP/firmware/)
-      # Add the config
       cp ${configTxt} firmware/config.txt
-      # Add pi3 specific files
       cp ${pkgs.ubootRaspberryPi3_64bit}/u-boot.bin firmware/u-boot-rpi3.bin
-      # Add pi4 specific files
       cp ${pkgs.ubootRaspberryPi4_64bit}/u-boot.bin firmware/u-boot-rpi4.bin
       cp ${pkgs.raspberrypi-armstubs}/armstub8-gic.bin firmware/armstub8-gic.bin
       cp ${pkgs.raspberrypifw}/share/raspberrypi/boot/bcm2711-rpi-4-b.dtb firmware/
@@ -73,11 +66,10 @@
     '';
   };
 
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-label/NIXOS_SD";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/NIXOS_SD";
+    fsType = "ext4";
   };
+  
   swapDevices = [ { device = "/swapfile"; size = 1024; } ];
 }

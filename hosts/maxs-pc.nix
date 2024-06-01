@@ -2,8 +2,8 @@
 {
   imports =
     [
+      ../hardware/custom/opentop-rig.nix
       ../modules/update-maxnix/update-maxnix.nix
-      ./hardware.nix
       ../modules/home/home.nix
       ../modules/i3/i3.nix
     ];
