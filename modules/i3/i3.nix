@@ -197,8 +197,8 @@ in
                   "XF86AudioMute" = "exec amixer sset 'Master' toggle";
 
                   # Brightness Keys
-                  "XF86MonBrightnessUp" = "exec --no-startup-id brightnessctl set +5%";
-                  "XF86MonBrightnessDown" = "exec --no-startup-id brightnessctl set 5%-";
+                  "XF86MonBrightnessUp" = "exec --no-startup-id brightnessctl set +15%";
+                  "XF86MonBrightnessDown" = "exec --no-startup-id brightnessctl set 15%-";
 
                   # Switch Workspaces
                   "${modifier}+0" = "workspace number 10";
