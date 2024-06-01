@@ -110,7 +110,7 @@ in
                 { block = "memory"; }
                 { block = "battery"; }
                 { block = "disk_space"; }
-                { block = "music"; icon = "🎵"; }
+                { block = "music"; format = "🎵 {$combo.str(max_w:25,rot_interval:0.5) $play |}"; }
                 { block = "net"; }
                 { block = "sound"; }
                 { block = "temperature"; format = " $icon $max C "; }
