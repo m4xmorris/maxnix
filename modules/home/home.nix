@@ -8,8 +8,9 @@ in
   ];
 
   users.users.max = {
-	shell = pkgs.zsh;
-	ignoreShellProgramCheck = true;
+    shell = pkgs.zsh;
+    initialPassword = "Changeme!234";
+    ignoreShellProgramCheck = true;
     isNormalUser = true;
   };
 
