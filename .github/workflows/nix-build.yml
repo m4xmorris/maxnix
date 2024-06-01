@@ -17,6 +17,11 @@ jobs:
         nix-build '<nixpkgs/nixos>'  \
           -A config.system.build.isoImage \
           -I nixos-config=./hosts/${{ github.job }}.nix
+    - name: Export image
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ github.job }}-iso
+        path: ./result/iso
 
   maxs-laptop:
     runs-on: [self-hosted, Linux]
@@ -29,6 +34,11 @@ jobs:
         nix-build '<nixpkgs/nixos>'  \
           -A config.system.build.isoImage \
           -I nixos-config=./hosts/${{ github.job }}.nix
+    - name: Export image
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ github.job }}-iso
+        path: ./result/iso
 
   keyboard-pi:
     runs-on: [self-hosted, Linux]
@@ -43,3 +53,9 @@ jobs:
           -I nixos-config=./hosts/${{ github.job }}.nix \
           --argstr system aarch64-linux \
           --option sandbox false
+    - name: Export image
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ github.job }}-img
+        path: ./result/sd-image
+          

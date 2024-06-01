@@ -42,7 +42,7 @@
   hardware.raspberry-pi."4".fkms-3d.enable = true;
 
   sdImage = {
-    compressImage = true;
+    compressImage = false;
     populateFirmwareCommands = let
       configTxt = pkgs.writeText "config.txt" ''
         [pi3]
