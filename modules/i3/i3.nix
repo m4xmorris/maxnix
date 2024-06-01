@@ -44,97 +44,117 @@ in
           pkgs.brightnessctl
         ];
         xsession.enable = true;
-		
-        programs.vscode = {
-          enable = true;
-        };
 
-        programs.terminator = {
-          enable = true;
-          config = {
+        programs = {
+          vscode = {
+            enable = true;
+          };
+
+          terminator = {
+            enable = true;
+            config = {
+              profiles.default = {
+                show_titlebar = false;
+                background_type = "transparent";
+                background_darkness = "0.75";
+                font = "Ubuntu Mono 12";
+                use_system_font = false;
+                scrollback_lines = "2000";
+                cursor_shape = "ibeam";
+                scrollbar_position = "disabled";
+                audible_bell = true;
+                visual_bell = true;
+              };
+              keybindings = {
+                zoom_in = "<Super>equal";
+                zoom_out = "<Super>minus";
+                zoom_normal = "<Super>BackSpace";
+              };
+            };
+          };
+
+          rofi = {
+            enable = true;
+            theme = "dracula";
+          };
+      
+          i3status-rust = {
+            enable = true;
+            bars = {
+              top = {
+                blocks = [
+                  { block = "focused_window"; format = " $title.str |"; }
+                  { block = "cpu"; format = "  $utilization "; }
+                  { block = "memory"; format = "  $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)($mem_used_percents.eng(w:2)) "; }
+                  { block = "battery"; }
+                  { block = "disk_space"; format = "  $available "; }
+                  { block = "music"; format = "🎵 {$combo.str(max_w:25,rot_interval:0.5) $play |}"; }
+                  { block = "net"; }
+                  { block = "sound"; }
+                  { block = "temperature"; format = " $icon $max C "; }
+                  { block = "uptime"; }
+                  { block = "time"; }
+                ];
+                icons = "awesome6";
+                theme = "dracula";
+              };
+            };
+          };
+
+          zsh = {
+            initExtra = "if [ $TTY = \"/dev/tty1\" ] && [[ $HOST = maxs-pc || $HOST = maxs-laptop ]] ; then ; startx; exit ;fi; touch .zshrc 2> /dev/null";
+            shellAliases = { update-lockscreen = "betterlockscreen -u /etc/nixos/modules/i3/wallpaper.jpg --blur 0.4"; };
+          };
+
+          firefox = {
+            enable = true;
             profiles.default = {
-              show_titlebar = false;
-              background_type = "transparent";
-              background_darkness = "0.75";
-              font = "Ubuntu Mono 12";
-              use_system_font = false;
-              scrollback_lines = "2000";
-              cursor_shape = "ibeam";
-              scrollbar_position = "disabled";
-              audible_bell = true;
-              visual_bell = true;
-            };
-            keybindings = {
-              zoom_in = "<Super>equal";
-              zoom_out = "<Super>minus";
-              zoom_normal = "<Super>BackSpace";
+              isDefault = true;
+              search = {
+                default = "Google";
+                privateDefault = "DuckDuckGo";
+              };
+              settings = {
+                "browser.startup.homepage" = "https://google.co.uk";
+                "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+              };
             };
           };
+
         };
 
-        programs.rofi = {
-          enable = true;
-          theme = "dracula";
-        };
-		
-        home.file.rofi-dracula = {
-          enable = true;
-          text = builtins.readFile(builtins.fetchurl {
-            url = "https://raw.githubusercontent.com/dracula/rofi/master/theme/config1.rasi";
-          });
-          target = ".config/rofi/dracula.rasi";
-        };
-
-        home.file.ssh-config = {
-          enable = true;
-          text = ''
-            Host *
-              IdentityAgent ~/.1password/agent.sock
-          '';
-          target = ".ssh/config";
-        };
-
-        home.file.gitconfig = {
-          enable = true;
-          text = ''
-            [user]
-            signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE3uxUvPAknwJHQWKg+B9AKnOW1ijkjGzq5IjuguW8rC
-            [gpg]
-            format = ssh
-            [gpg "ssh"]
-            program = "/home/max/.nix-profile/bin/op-ssh-sign"
-            [commit]
-            gpgsign = true
-          '';
-          target = ".gitconfig";
-        };
-
-        programs.i3status-rust = {
-          enable = true;
-          bars = {
-            top = {
-              blocks = [
-                { block = "focused_window"; format = " $title.str |"; }
-                { block = "cpu"; format = "  $utilization "; }
-                { block = "memory"; format = "  $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)($mem_used_percents.eng(w:2)) "; }
-                { block = "battery"; }
-                { block = "disk_space"; format = "  $available "; }
-                { block = "music"; format = "🎵 {$combo.str(max_w:25,rot_interval:0.5) $play |}"; }
-                { block = "net"; }
-                { block = "sound"; }
-                { block = "temperature"; format = " $icon $max C "; }
-                { block = "uptime"; }
-                { block = "time"; }
-              ];
-              icons = "awesome6";
-              theme = "dracula";
-            };
+        home = {
+          file.ssh-config = {
+            enable = true;
+            text = ''
+              Host *
+                IdentityAgent ~/.1password/agent.sock
+            '';
+            target = ".ssh/config";
           };
-        };
 
-        programs.zsh = {
-          initExtra = "if [ $TTY = \"/dev/tty1\" ] && [[ $HOST = maxs-pc || $HOST = maxs-laptop ]] ; then ; startx; exit ;fi; touch .zshrc 2> /dev/null";
-          shellAliases = { update-lockscreen = "betterlockscreen -u /etc/nixos/modules/i3/wallpaper.jpg --blur 0.4"; };
+          file.rofi-dracula = {
+            enable = true;
+            text = builtins.readFile(builtins.fetchurl {
+              url = "https://raw.githubusercontent.com/dracula/rofi/master/theme/config1.rasi";
+            });
+            target = ".config/rofi/dracula.rasi";
+          };
+
+          file.gitconfig = {
+            enable = true;
+            text = ''
+              [user]
+              signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE3uxUvPAknwJHQWKg+B9AKnOW1ijkjGzq5IjuguW8rC
+              [gpg]
+              format = ssh
+              [gpg "ssh"]
+              program = "/home/max/.nix-profile/bin/op-ssh-sign"
+              [commit]
+              gpgsign = true
+            '';
+            target = ".gitconfig";
+          };
         };
 
         services.screen-locker = {
