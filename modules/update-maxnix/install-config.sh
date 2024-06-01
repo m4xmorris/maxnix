@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-CONFIG_PATH="/etc/nixos/$(cat /etc/hostname)/configuration.nix"
+CONFIG_PATH="/etc/nixos/hosts/$(cat /etc/hostname).nix"
 
 if [ -f ${CONFIG_PATH} ]; then
   ln -s ${CONFIG_PATH} /etc/nixos/configuration.nix
