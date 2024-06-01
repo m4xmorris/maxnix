@@ -77,12 +77,6 @@ in
           theme = "dracula";
         };
 		
-        programs.git.signing = {
-          signByDefault = true;
-          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE3uxUvPAknwJHQWKg+B9AKnOW1ijkjGzq5IjuguW8rC";
-          gpgPath = "${pkgs._1password}/bin/op-ssh-sign";
-        };
-
         home.file.rofi-dracula = {
           enable = true;
           text = builtins.readFile(builtins.fetchurl {
@@ -98,6 +92,21 @@ in
               IdentityAgent ~/.1password/agent.sock
           '';
           target = ".ssh/config";
+        };
+
+        home.file.gitconfig = {
+          enable = true;
+          text = ''
+            [user]
+            signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE3uxUvPAknwJHQWKg+B9AKnOW1ijkjGzq5IjuguW8rC
+            [gpg]
+            format = ssh
+            [gpg "ssh"]
+            program = "/home/max/.nix-profile/bin/op-ssh-sign"
+            [commit]
+            gpgsign = true
+          '';
+          target = ".gitconfig";
         };
 
         programs.i3status-rust = {
