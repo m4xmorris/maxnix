@@ -10,6 +10,7 @@ jobs:
     runs-on: [self-hosted, Linux]
     steps:
     - uses: actions/checkout@v4
+    - uses: DeterminateSystems/magic-nix-cache-action@main
     - name: Build image
       env:
         NIX_PATH: "nixpkgs=channel:nixos-24.05"
@@ -22,6 +23,7 @@ jobs:
     runs-on: [self-hosted, Linux]
     steps:
     - uses: actions/checkout@v4
+    - uses: DeterminateSystems/magic-nix-cache-action@main
     - name: Build image
       env:
         NIX_PATH: "nixpkgs=channel:nixos-24.05"
@@ -34,6 +36,7 @@ jobs:
     runs-on: [self-hosted, Linux]
     steps:
     - uses: actions/checkout@v4
+    - uses: DeterminateSystems/magic-nix-cache-action@main
     - name: Build image
       env:
         NIX_PATH: "nixpkgs=channel:nixos-24.05"
