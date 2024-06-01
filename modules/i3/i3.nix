@@ -109,7 +109,7 @@ in
                 { block = "cpu"; }
                 { block = "memory"; }
                 { block = "battery"; }
-                { block = "disk_space"; }
+                { block = "disk_space"; format = "  $available "; }
                 { block = "music"; format = "🎵 {$combo.str(max_w:25,rot_interval:0.5) $play |}"; }
                 { block = "net"; }
                 { block = "sound"; }
