@@ -2,6 +2,7 @@
 {
   imports =
     [
+      <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
       ../hardware/acer/aspire-a515.nix
       ../modules/update-maxnix/update-maxnix.nix
       ../modules/home/home.nix
@@ -13,7 +14,6 @@
   users.users.max.extraGroups = [ "wheel" ];
 
   networking.hostName = "maxs-laptop";
-  networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/London";
 

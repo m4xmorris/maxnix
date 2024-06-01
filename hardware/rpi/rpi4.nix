@@ -34,6 +34,11 @@
     ];
   };
 
+  networking = {
+    networkmanager.enable = true;
+    wireless.enable = false;
+  };
+
   hardware.raspberry-pi."4".fkms-3d.enable = true;
 
   sdImage = {

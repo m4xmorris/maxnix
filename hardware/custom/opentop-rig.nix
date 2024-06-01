@@ -32,6 +32,11 @@
     pulseaudio.enable = true;
   };
 
+  networking = {
+    networkmanager.enable = true;
+    wireless.enable = false;
+  };
+
   sound.enable = true;
 
   services = {
