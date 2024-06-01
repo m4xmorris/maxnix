@@ -207,6 +207,7 @@ in
                   { command = "picom" ; }
                   { command = "1password --silent"; }
                   { command = "discord --start-minimized"; }
+                  { command = "blueman-applet"; }
                 ];
 
                 keybindings = let modifier = config.home-manager.users.max.xsession.windowManager.i3.config.modifier;
