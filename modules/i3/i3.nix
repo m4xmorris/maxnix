@@ -34,6 +34,7 @@ in
           pkgs.cinnamon.nemo
           pkgs.playerctl
           pkgs.firefox
+          pkgs.discord
           pkgs.terminator
           pkgs._1password-gui
           pkgs.pavucontrol
@@ -176,6 +177,7 @@ in
                   { command = "dunst"; }
                   { command = "picom" ; }
                   { command = "1password --silent"; }
+                  { command = "discord"; }
                 ];
 
                 keybindings = let modifier = config.home-manager.users.max.xsession.windowManager.i3.config.modifier;
