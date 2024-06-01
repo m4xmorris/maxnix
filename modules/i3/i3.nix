@@ -106,8 +106,8 @@ in
             top = {
               blocks = [
                 { block = "focused_window"; format = " $title.str |"; }
-                { block = "cpu"; }
-                { block = "memory"; }
+                { block = "cpu"; format = "  $utilization "; }
+                { block = "memory"; format = "  $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)($mem_used_percents.eng(w:2)) "; }
                 { block = "battery"; }
                 { block = "disk_space"; format = "  $available "; }
                 { block = "music"; format = "🎵 {$combo.str(max_w:25,rot_interval:0.5) $play |}"; }
