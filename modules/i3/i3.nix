@@ -103,7 +103,7 @@ in
 
           zsh = {
             initExtra = "if [ $TTY = \"/dev/tty1\" ] && [[ $HOST = maxs-pc || $HOST = maxs-laptop ]] ; then ; startx; exit ;fi; touch .zshrc 2> /dev/null";
-            shellAliases = { update-lockscreen = "betterlockscreen -u /etc/nixos/modules/i3/wallpaper.jpg --blur 0.4"; };
+            shellAliases = { update-lockscreen = "betterlockscreen -u /etc/nixos/modules/i3/wallpaper.jpg"; };
           };
 
           firefox = {
@@ -160,7 +160,7 @@ in
         services.screen-locker = {
           enable = true;
           inactiveInterval = 10;
-          lockCmd = "${pkgs.betterlockscreen}/bin/betterlockscreen --lock";
+          lockCmd = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dimblur";
           xautolock = {
             enable = true;
             detectSleep = true;
@@ -291,7 +291,7 @@ in
                   "${modifier}+i" = "exec --no-startup-id firefox";
 
                   # Lock Screen
-                  "${modifier}+l" = "exec ${pkgs.betterlockscreen}/bin/betterlockscreen --lock";
+                  "${modifier}+l" = "exec ${pkgs.betterlockscreen}/bin/betterlockscreen -l dimblur";
 
                   # Kill the focused window
                   "${modifier}+q" = "kill";

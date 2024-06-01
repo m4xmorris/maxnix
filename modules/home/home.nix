@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz";
 in
 {
   imports = [
@@ -39,7 +39,7 @@ in
       zsh = {
         enable = true;
         syntaxHighlighting.enable = true;
-        enableAutosuggestions = true;
+        autosuggestion.enable = true;
         initExtra = lib.mkDefault "touch .zshrc 2> /dev/null";
       };
       zsh.oh-my-zsh = {
