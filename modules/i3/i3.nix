@@ -105,7 +105,7 @@ in
           bars = {
             top = {
               blocks = [
-                { block = "focused_window"; }
+                { block = "focused_window"; format = " $title.str |"; }
                 { block = "cpu"; }
                 { block = "memory"; }
                 { block = "battery"; }
