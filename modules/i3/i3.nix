@@ -113,6 +113,7 @@ in
               search = {
                 default = "Google";
                 privateDefault = "DuckDuckGo";
+                force = true;
               };
               settings = {
                 "browser.startup.homepage" = "https://google.co.uk";
