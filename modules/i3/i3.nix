@@ -112,7 +112,6 @@ in
               isDefault = true;
               search = {
                 default = "Google";
-                privateDefault = "DuckDuckGo";
                 force = true;
               };
               settings = {
