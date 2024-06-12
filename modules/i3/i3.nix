@@ -46,6 +46,7 @@ in
           pkgs._1password-gui
           pkgs.pavucontrol
           pkgs.vscode
+          pkgs.git
           pkgs.xorg.xinit
           pkgs.xorg.xauth
           pkgs.brightnessctl
@@ -55,6 +56,33 @@ in
         programs = {
           vscode = {
             enable = true;
+          };
+
+          ssh = {
+            enable = true;
+            extraConfig = ''
+              Host *
+                IdentityAgent ~/.1password/agent.sock
+            '';
+          };
+
+          git = {
+            enable = true;
+            extraConfig = {
+              gpg = {
+                format = "ssh";
+              };
+              "gpg \"ssh\"" = {
+                program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
+              };
+              commit = {
+                gpgsign = true;
+              };
+
+              user = {
+                signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE3uxUvPAknwJHQWKg+B9AKnOW1ijkjGzq5IjuguW8rC";
+              };
+            };
           };
 
           terminator = {
@@ -131,15 +159,6 @@ in
         };
 
         home = {
-          file.ssh-config = {
-            enable = true;
-            text = ''
-              Host *
-                IdentityAgent ~/.1password/agent.sock
-            '';
-            target = ".ssh/config";
-          };
-
           file.rofi-dracula = {
             enable = true;
             text = builtins.readFile(builtins.fetchurl {
@@ -147,23 +166,8 @@ in
             });
             target = ".config/rofi/dracula.rasi";
           };
-
-          file.gitconfig = {
-            enable = true;
-            text = ''
-              [user]
-              signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE3uxUvPAknwJHQWKg+B9AKnOW1ijkjGzq5IjuguW8rC
-              [gpg]
-              format = ssh
-              [gpg "ssh"]
-              program = "/home/max/.nix-profile/bin/op-ssh-sign"
-              [commit]
-              gpgsign = true
-            '';
-            target = ".gitconfig";
-          };
         };
-
+      
         services.screen-locker = {
           enable = true;
           inactiveInterval = 10;
