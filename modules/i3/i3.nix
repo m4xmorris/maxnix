@@ -211,7 +211,7 @@ in
                 ];
                 startup = [
                   { command = "numlockx on"; always = true; }
-                  { command = "feh --bg-fill /etc/nixos/modules/i3/wallpaper.jpg"; always = true; }
+                  { command = "feh --bg-scale /etc/nixos/modules/i3/wallpaper.jpg"; always = true; }
                   { command = "solaar -w hide"; }
                   { command = "nextcloud"; }
                   { command = "dunst"; }
