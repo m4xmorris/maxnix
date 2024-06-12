@@ -2,7 +2,6 @@
 {
   imports =
     [
-      <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
       ../hardware/acer/aspire-a515.nix
       ../modules/update-maxnix/update-maxnix.nix
       ../modules/home/home.nix
