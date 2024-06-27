@@ -29,6 +29,7 @@
     killall
     moonlight-qt
     spotify
+    steam
   ];
 
   system.stateVersion = "23.11";
