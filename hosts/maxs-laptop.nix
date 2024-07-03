@@ -2,7 +2,7 @@
 {
   imports =
     [
-      ../hardware/acer/aspire-a515.nix
+      ../hardware/lenovo/thinkpad-x260.nix
       ../modules/update-maxnix/update-maxnix.nix
       ../modules/home/home.nix
       ../modules/i3/i3.nix
