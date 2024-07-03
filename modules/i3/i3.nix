@@ -50,6 +50,7 @@ in
           pkgs.xorg.xinit
           pkgs.xorg.xauth
           pkgs.brightnessctl
+          pkgs.krdc
         ];
         xsession.enable = true;
 
