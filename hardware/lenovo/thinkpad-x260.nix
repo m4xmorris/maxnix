@@ -50,7 +50,7 @@
     "/boot" =
       { device = "/dev/disk/by-uuid/479F-0B57";
         fsType = "vfat";
-        options = [ "fmask=0022" "dmask=0022" ];
+        options = [ "fmask=007" "dmask=007" ];
       };
 
     "/nix" =
