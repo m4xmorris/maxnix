@@ -194,7 +194,7 @@ in
               defaultWorkspace = "workspace number 1";
                 bars = [
                   {
-                    fonts = { names = [ "Ubuntu" ]; size = 9.0; };
+                    fonts = { names = [ "Ubuntu" ]; size = 8.0; };
                     position = "top";
                     trayOutput = "primary";
                     statusCommand = "i3status-rs /home/max/.config/i3status-rust/config-top.toml";
