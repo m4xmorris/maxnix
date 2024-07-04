@@ -43,6 +43,7 @@ in
           pkgs.firefox
           pkgs.discord
           pkgs.terminator
+          pkgs.localsend
           pkgs._1password-gui
           pkgs.pavucontrol
           pkgs.vscode
