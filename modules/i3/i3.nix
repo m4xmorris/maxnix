@@ -24,6 +24,8 @@ in
     polkitPolicyOwners = [ "max" ];
   };
 
+  networking.firewall.allowedTCPPorts = [ 53317 ]; # LocalSend
+
   home-manager = {
     useGlobalPkgs = true;
       users.max = { 
