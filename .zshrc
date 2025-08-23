@@ -5,6 +5,8 @@ plugins=(1password ansible argocd bgnotify brew docker kubectl kube-ps1 macos pr
 source $ZSH/oh-my-zsh.sh
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+autoload -Uz compinit
+compinit
 
 # Env
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -19,6 +21,8 @@ function get_cluster_short() {
   echo "$1" | cut -d . -f1
 }
 KUBE_PS1_CLUSTER_FUNCTION=get_cluster_short
+fpath=(/Users/max/.docker/completions $fpath)
+fpath=(/Users/max/.docker/completions $fpath)
 
 # Functions
 function get_cluster_short() {
