@@ -7,7 +7,7 @@ k9s:
   noExitOnCtrlC: false
   ui:
     enableMouse: false
-    skin: dracula
+    skin: nord
     headless: false
     logoless: false
     crumbsless: false
